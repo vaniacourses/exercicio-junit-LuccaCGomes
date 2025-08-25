@@ -62,4 +62,18 @@ public class CalculadoraTest {
 		assertTrue(mult == 42);
 	}
 	
+	@Test
+	public void testSomatoria() {
+		int s = calc.somatoria(5);
+		assertEquals(15, s);
+	}
+
+
+	@Test
+	public void testSeEhPositivo() {
+		assertTrue(calc.ehPositivo(10));
+		assertTrue(calc.ehPositivo(0));
+	}
+
+	
 }
