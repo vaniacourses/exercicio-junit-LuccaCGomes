@@ -74,6 +74,22 @@ public class CalculadoraTest {
 		assertTrue(calc.ehPositivo(10));
 		assertTrue(calc.ehPositivo(0));
 	}
-
 	
+	@Test
+	public void testComparaSeSaoIguais() {
+		int r = calc.compara(7, 7);
+		assertEquals(0, r);
+	}
+
+	@Test
+	public void testComparaMaiorQue() {
+		int r = calc.compara(10, 3);
+		assertEquals(1, r);
+	}
+
+	@Test
+	public void testComparaMenorQue() {
+		int r = calc.compara(2, 9);
+		assertEquals(-1, r);
+	}
 }
