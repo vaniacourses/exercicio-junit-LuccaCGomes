@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import produto.Produto;
-import produto.ProdutoNaoEncontradoException;
 
 
 @DisplayName("Classe para teste do Carrinho")
