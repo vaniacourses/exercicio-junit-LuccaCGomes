@@ -2,6 +2,7 @@ package calculadora;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -34,16 +35,7 @@ public class CalculadoraTest {
 		assertTrue(divisao == 2);
 	}
 	
-	@Test
-	public void testDivisaoPorZero() {
-		try {
-			int divisao = calc.divisao(8, 0);
-			fail("Exce��o n�o lan�ada");
-		}catch (ArithmeticException e) {
-			assertEquals("/ by zero", e.getMessage());
-		}		
-	}
-	
+
 	@Test
 	public void testDivisaoPorZeroComAssertThrows() {
 		assertThrows(ArithmeticException.class,
@@ -74,6 +66,12 @@ public class CalculadoraTest {
 		assertTrue(calc.ehPositivo(10));
 		assertTrue(calc.ehPositivo(0));
 	}
+	
+	@Test
+	public void testSeEhPositivo_Negativo() {
+	    assertFalse(calc.ehPositivo(-1)); // cobre o branch "false" de n >= 0
+	}
+
 	
 	@Test
 	public void testComparaSeSaoIguais() {

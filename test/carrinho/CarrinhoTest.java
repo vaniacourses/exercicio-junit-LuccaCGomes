@@ -2,6 +2,7 @@ package carrinho;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -65,6 +66,17 @@ public class CarrinhoTest {
 
 		assertEquals(0, carrinho.getQtdeItems());
 		assertEquals(0.0, carrinho.getValorTotal(), 0.0001);
+	}
+	
+	@Test
+	public void testRemoveItemInexistenteLancaExcecao() {
+	    Produto existente = new Produto("SSD", 400.0);
+	    Produto inexistente = new Produto("Cabo HDMI", 30.0);
+
+	    carrinho.addItem(existente);
+	    assertThrows(produto.ProdutoNaoEncontradoException.class, () -> {
+	        carrinho.removeItem(inexistente);
+	    });
 	}
 	
 }
